@@ -1,44 +1,49 @@
-$(function() {
+$(function(){  // kjøres når dokumentet er ferdig lastet
     hentAlleBiler();
 });
 
 function hentAlleBiler() {
-    $.get("/hentBiler", function (biler) {
+    $.get( "/hentBiler", function( biler ) {
         formaterBiler(biler);
-    });
+    })
+        .fail(function(jqXHR) {
+            const json = $.parseJSON(jqXHR.responseText);
+            $("#feil").html(json.message);
+        });
 }
 
-function formaterBiler(biler) {
-    let ut = "<select id= 'valgtMerke' onchange='finnTyper()'>";
+function formaterBiler(biler){
+    let ut = "<select id='valgtMerke' onchange='finnTyper()'>";
     let forrigeMerke = "";
-    ut += "<option>Velg merke</option>";
-
-    for (const bil of biler) {
-        if(bil.merke !== forrigeMerke) {
-            ut += "<option>" + bil.merke + "</option>";
+    ut+="<option>Velg merke</option>";
+    for (const bil of biler){
+        if(bil.merke !== forrigeMerke){
+            ut+="<option>"+bil.merke+"</option>";
         }
         forrigeMerke = bil.merke;
     }
-
-    ut += "</select>";
+    ut+="</select>";
     $("#merke").html(ut);
 }
 
-function finnTyper() {
+function finnTyper(){
     const valgtMerke = $("#valgtMerke").val();
-    $.get("/hentBiler", function (biler) {
-        formaterTyper(biler, valgtMerke);
-    });
+    $.get( "/hentBiler", function( biler ) {
+        formaterTyper(biler,valgtMerke);
+    })
+        .fail(function(jqXHR) {
+            const json = $.parseJSON(jqXHR.responseText);
+            $("#feil").html(json.message);
+        });
 }
-
-function formaterTyper(biler, valgtMerke) {
+function formaterTyper(biler,valgtMerke){
     let ut = "<select id='valgtType'>";
-    for(const bil of biler) {
-        if(bil.merke === valgtMerke) {
-            ut += "<option>" + bil.type + "</option>";
+    for(const bil of biler ){
+        if(bil.merke === valgtMerke){
+            ut+="<option>"+bil.type+"</option>";
         }
     }
-    ut += "</select>";
+    ut+="</select>";
     $("#type").html(ut);
 }
 
@@ -50,11 +55,10 @@ function regMotorvogn() {
         kjennetegn : $("#kjennetegn").val(),
         merke : $("#valgtMerke").val(),
         type : $("#valgtType").val(),
-    }
-
-    $.post("/lagre", motorvogn, function () {
+    };
+    $.post("/lagre", motorvogn, function(){
         hentAlle();
     });
 
-    window.location.href = "/";
+    window.location.href="/";
 }

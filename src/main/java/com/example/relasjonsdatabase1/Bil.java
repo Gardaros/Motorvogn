@@ -8,14 +8,24 @@ public class Bil {
         this.merke = merke;
         this.type = type;
     }
-    public Bil() { }
 
-    public String getMerke() { return merke; }
+    public Bil() {
+    }
 
-    public void setMerke(String merke) { this.merke = merke; }
+    public String getMerke() {
+        return merke;
+    }
 
-    public String getType() { return type; }
+    public void setMerke(String merke) {
+        this.merke = merke;
+    }
 
-    public void setType(String type) { this.type = type; }
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }
