@@ -64,7 +64,7 @@ public class MotorvognRepository {
         }
     }
 
-    public boolean slettEnMotorvogn(long personnr) {
+    public boolean slettEnMotorvogn(String personnr) {
         String sql = "DELETE FROM Motorvogn WHERE personnr=?";
         try{
             db.update(sql,personnr);
@@ -95,6 +95,20 @@ public class MotorvognRepository {
         }
         catch(Exception e){
             return null;
+        }
+    }
+
+    public boolean loggInn(String brukernavn, String passord) {
+        String sql = "SELECT count(*) FROM bruker WHERE brukernavn = ? AND passord = ?";
+        try {
+            int funnetEnBruker = db.queryForObject(sql, Integer.class, brukernavn, passord);
+            if(funnetEnBruker > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch(Exception e)  {
+            return false;
         }
     }
 }
