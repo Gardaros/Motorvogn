@@ -28,6 +28,7 @@ function formaterBiler(biler){
 
 function finnTyper(){
     const valgtMerke = $("#valgtMerke").val();
+    $("#feilMerke").html("");
     $.get( "/hentBiler", function( biler ) {
         formaterTyper(biler,valgtMerke);
     })
@@ -56,9 +57,12 @@ function regMotorvogn() {
         merke : $("#valgtMerke").val(),
         type : $("#valgtType").val(),
     };
-    $.post("/lagre", motorvogn, function(){
-        hentAlle();
-    });
 
-    window.location.href="/";
+    if(ingenValideringsFeil()){
+        $.post("/lagre", motorvogn, function(){
+            hentAlle();
+        });
+
+        window.location.href="/";
+    }
 }

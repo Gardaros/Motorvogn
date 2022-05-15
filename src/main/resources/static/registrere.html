@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Motorvognregister</title>
 </head>
@@ -14,25 +14,30 @@
             <form class="form">
                 <div class="form-group">
                     <label for="personnr">Personnr</label>
-                    <input type="text" class="form-control" id="personnr"/>
+                    <input type="text" class="form-control" id="personnr" onchange="validerPersonnr()"/>
+                    <span id="feilPersonnummer" style="color: red"></span>
                 </div>
                 <div class="form-group">
                     <label for="navn">Navn</label>
-                    <input type="text" class="form-control" id="navn"/>
+                    <input type="text" class="form-control" id="navn" onchange="validerNavn()"/>
+                    <span id="feilNavn" style="color: red"></span>
                 </div>
                 <div class="form-group">
                     <label for="adresse">Adresse</label>
-                    <input type="text" class="form-control" id="adresse"/>
+                    <input type="text" class="form-control" id="adresse" onchange="validerAdresse()"/>
+                    <span id="feilAdresse" style="color: red"></span>
                 </div>
                 <div class="form-group">
                     <label for="kjennetegn">Kjennetegn</label>
-                    <input type="text" class="form-control" id="kjennetegn"/>
+                    <input type="text" class="form-control" id="kjennetegn" onchange="validerKjennetegn()"/>
+                    <span id="feilKjennetegn" style="color: red"></span>
                 </div>
                 <div class="form-group">
                     <label for="merke">Merke</label>
                     <div id="merke" class="dropdown">
 
                     </div>
+                    <span id="feilMerke" style="color: red"></span>
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label>
@@ -47,5 +52,6 @@
 </div>
 <div id="feil"></div>
 <script src="registrere.js"></script>
+<script src="validering.js"></script>
 </body>
 </html>

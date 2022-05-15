@@ -2,14 +2,14 @@ package com.example.relasjonsdatabase1;
 
 public class Motorvogn {
     private int id;
-    private long personnr;
+    private String personnr;
     private String navn;
     private String adresse;
     private String kjennetegn;
     private String merke;
     private String type;
 
-    public Motorvogn(int id, long personnr, String navn, String adresse, String kjennetegn, String merke, String type) {
+    public Motorvogn(int id, String personnr, String navn, String adresse, String kjennetegn, String merke, String type) {
         this.id = id;
         this.personnr = personnr;
         this.navn = navn;
@@ -30,11 +30,11 @@ public class Motorvogn {
         this.id = id;
     }
 
-    public long getPersonnr() {
+    public String getPersonnr() {
         return personnr;
     }
 
-    public void setPersonnr(long personnr) {
+    public void setPersonnr(String personnr) {
         this.personnr = personnr;
     }
 
