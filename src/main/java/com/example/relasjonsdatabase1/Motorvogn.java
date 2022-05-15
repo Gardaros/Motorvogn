@@ -2,14 +2,14 @@ package com.example.relasjonsdatabase1;
 
 public class Motorvogn {
     private int id;
-    private long personnr;
+    private String personnr;
     private String navn;
     private String adresse;
     private String kjennetegn;
     private String merke;
     private String type;
 
-    public Motorvogn(int id, long personnr, String navn, String adresse, String kjennetegn, String merke, String type){
+    public Motorvogn(int id, String personnr, String navn, String adresse, String kjennetegn, String merke, String type) {
         this.id = id;
         this.personnr = personnr;
         this.navn = navn;
@@ -19,26 +19,62 @@ public class Motorvogn {
         this.type = type;
     }
 
-    public Motorvogn () { }
+    public Motorvogn() {
+    }
 
-    public int getId() { return id; };
-    public void setId(int id) { this.id = id; };
+    public int getId() {
+        return id;
+    }
 
-    public long getPersonnr() { return personnr; }
-    public void setPersonnr(long personnr) { this.personnr = personnr; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getNavn() { return navn; }
-    public void setNavn(String navn) { this.navn = navn; }
+    public String getPersonnr() {
+        return personnr;
+    }
 
-    public String getAdresse() { return adresse; }
-    public void setAdresse(String adresse) { this.adresse = adresse; }
+    public void setPersonnr(String personnr) {
+        this.personnr = personnr;
+    }
 
-    public String getKjennetegn() { return kjennetegn; }
-    public void setKjennetegn(String kjennetegn) { this.kjennetegn = kjennetegn; }
+    public String getNavn() {
+        return navn;
+    }
 
-    public String getMerke() { return merke; }
-    public void setMerke(String merke) { this.merke = merke; }
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
 
-    public String getType() { return type; }
-    public void setType(String type) { this.type = type; }
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getKjennetegn() {
+        return kjennetegn;
+    }
+
+    public void setKjennetegn(String kjennetegn) {
+        this.kjennetegn = kjennetegn;
+    }
+
+    public String getMerke() {
+        return merke;
+    }
+
+    public void setMerke(String merke) {
+        this.merke = merke;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
